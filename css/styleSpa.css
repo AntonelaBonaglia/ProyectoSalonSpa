@@ -1,0 +1,422 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    background-color: #FFFCF3;
+    font-family: 'Quicksand', sans-serif;
+    color: #3C0E03;
+}
+header {
+    position: relative;
+    top:-35px;
+}
+main{
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Quicksand', sans-serif;
+    color: #3C0E03;
+    position: relative;
+}
+
+.main-nav {
+    margin-right: 40px;
+}
+.menu,
+.submenu,
+.sublogo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* MENU RESPONSIVE */
+.resp {
+    display: none;  /* por defecto este contenido es visible, pero con esta prop ya no va a ocupar un lugar */
+}
+
+/* MENU DESKTOPS/WEB SITE */
+.menu {
+    background: #FFFCF3;
+    width: 100%;
+    height: 90px;
+    display: flex;  
+    justify-content: end;
+    align-items:flex-start; 
+    position: fixed;
+    z-index:500 ;
+    top: 0;
+}
+
+/* LOGO */
+.item-logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 450px;
+    bottom: 10px;
+    
+}
+.tit-logo {
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 64px;
+    color: #3C0E03;
+    text-shadow: 2px 2px 4px #C74A2A;
+    position: relative;
+    right: 23px;
+}
+.link-logo img {
+    position: relative;
+    bottom: 5px;
+}
+
+/* ITEMS DEL MENU */
+.menu-link {
+    display: flex;
+    margin: 0px 10px;
+    padding-bottom: 5px;
+    color: #B2766F;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+.menu a {
+    position: relative;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.no-resp {
+    margin-top: 20px;   
+}
+/* Efecto para subrayar texto dentro de un <a> al pasar el mouse*/
+.menu .subrayado::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.4px;
+    background:linear-gradient(90deg, #C74A2A 0%, #996163 57%);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+.menu a:hover::before {
+    transform: scaleX(1);
+}
+.menu[data-animation="center"] a::before {
+    transform-origin: center;
+}
+/* CONTENEDOR DEL SUB-MENU*/
+.container-submenu {
+    position: relative;
+}
+.submenu {
+    background-color: #c58780fb;
+    border-radius: 30% 15% / 30% 15%;
+    position: absolute;
+    top: 68px;
+    left: -45px;
+    padding: 10px;
+    z-index: 100;
+    visibility: hidden; /* hace transparente el contenedor */
+    opacity: 0; /* con las prop de abajo al sacar el cursor del elemento q tiene hover, se va difuminando hasta hacerse total la transparencia */
+    transition: all 0.5s ease-out;
+}
+.container-submenu:hover .submenu {
+    visibility: visible;    /*hace visible el contenedor cdo paso el mousse sobre quien tiene la prop :hover, "Servicios" */
+    opacity: 1; /*cdo pasamos el mousse por este ya no esta mas transparente */
+}
+/* ITEMS DEL SUB-MENU*/
+.submenu p {
+    font-size:13px;
+    color: #F2CA52;
+    text-shadow: 2px 2px 5px #120D08;
+}
+.submenu-link {
+    padding-bottom: 5px;
+    font-size:13px;
+    text-decoration: none;
+}
+.submenu .submenu-link {
+    padding-left: 25px;
+    padding: 10px;
+    color: #F2CA52;
+    text-shadow: 2px 2px 5px #120D08;
+    transition: all 0.5s ease-in-out;
+}
+.submenu .submenu-link:hover {
+    color:#281612;
+    font-weight: bold;
+}
+/* Efecto para redondear texto al pasar el mouse*/
+.submenu {
+    width: auto;
+    height: auto;
+}
+/*.submenu a { */
+.contac{
+    position: relative;
+    display: block;
+    padding: 5px; 
+    top: 25px;
+    border-radius: 45% 45% / 45% 45%;
+}
+
+/*.submenu a svg { */
+.svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    z-index: -1;
+}
+/*.submenu a svg path { */
+.svg path {
+    fill: transparent;
+    stroke-width: 8px;
+    stroke: #cc745e88;
+    stroke-dasharray: 150;
+    stroke-dashoffset: -1214;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.29, 0.68, 0.74, 1.02);
+}
+.menu .contac:hover svg path {
+    stroke-dashoffset: 0;
+}
+/*----*/
+.submenu-btn i { 
+    padding-left: 8px;
+}
+/* CARRITO*/
+.carro{
+    margin-right: 15px;
+}
+.icon {
+    height: 25px;
+    transition: 0.7s all ease;
+    fill: #995353 ;
+}
+.icon:hover {
+    fill:#FFD856 ;
+}
+/* MAIN */
+.spa {
+    position: relative;
+    top: 55px;
+}
+.subtit {
+    padding: 10px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Acme', sans-serif;
+    text-shadow: 2px 2px 4px #C74A2A;
+    font-size:35px;
+    letter-spacing: 1.5px;
+    position: relative;
+    top: -10px;
+}
+/*INTRO*/
+.intro {
+    background: #dc987b17;
+    height: 160px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.intro p {
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/*PACK*/
+.pack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.s2 {
+    margin-bottom: 20px;
+}
+.item-pack {
+    list-style: none;
+    width: 80%;
+    display: flex;
+}
+.items {
+    list-style: none;
+}
+.option {
+    width: 373px;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F7F7F7;
+    border-radius: 8%;
+    margin: 10px;
+    color: #7A7A7A;
+}
+.option div, .option h3, .option span {
+    text-align: center;
+    padding-top: 10px;
+    font-size: large;
+}
+.name {
+    width: 100%;
+    height: 93px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background: #7A7A7A;
+    color: #ffffff;
+    
+}
+.name h3 {
+    font-size:28px;
+    font-family: 'Sansita', sans-serif;
+    letter-spacing: 4px;
+}
+.precio span {
+    width: 100%;
+    height: 160px;
+    color: #D9BB84;
+    font-family: 'Sansita', sans-serif;
+    font-size: 65px;
+}
+.precio sup {
+    font-size: 25px;
+}
+.precio {
+    margin-top: 5px;
+}
+.pesos {
+    position: relative;
+    bottom: 5px;
+    margin-bottom: 30px;
+}
+.items i, .items span {
+    margin: 18px;
+    
+}
+.items li {
+    border-bottom: 1px solid #7a7a7a9f;
+}
+.lo-quiero {
+    margin: 15px 0px;
+    padding:8px 20px;
+    background:#D9BB84;
+    border-radius:20px;
+    }
+.lo-quiero:hover {
+    color:#F2E9D8;
+    background:#DC987B;
+}
+.lo-quiero a {
+    text-decoration:none;
+    color: #ffffff;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+.ser p {
+    font-size: small;
+    color: #50504F;
+}
+/*BOTONES*/
+.boton-personalizado {
+    text-decoration:none;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color:#F2E9D8;
+    padding:10px 45px;
+    background:#D9BB84;
+    border-radius:10px;
+    }
+.boton-personalizado:hover {
+    color:#F2E9D8;
+    background:#BF9341;
+}
+.cuatro {
+    background: #FFD757;
+    color: #F2E9D8 ;
+    border:none;
+    font-size: 30px;
+}
+.cuatro:hover {
+    color: #3C0E03;
+    background:#ffce2d;
+}
+
+/*RESERVAR*/
+.fin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 4px;
+}
+.text-fin, .boton-fin {
+    z-index: 10;
+    position: absolute;
+}
+.text-fin{
+    top: 60px;
+    text-align: center;
+    font-size: 55px;
+    color: whitesmoke;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+.boton-fin {
+    top: 240px;
+}
+/*WSAPP*/
+.wsapp {
+    position: fixed;
+    z-index: 700;
+}
+.wsapp img {
+    background: #D6B981;
+    position: relative;
+    left: 1280px;
+    top: 460px;
+    box-shadow: 4px 2px 3px 4px #50504F ;
+    border-radius: 100%;
+}
+/*FOOTER*/
+.page-footer { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    background: #120D08;
+    width: 100%;
+    height: 15vh;
+    top: 50px;
+}
+.page-footer span {
+    color: red;
+}
+.page-footer a  {
+    text-decoration: none;
+    color: #F2E9D8;
+}
+.page-footer small {
+    color:#F2E9D8 ;
+    position: relative;
+    top: 20px;
+}

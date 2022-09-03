@@ -1,0 +1,374 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    background-image: url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Quicksand', sans-serif;
+    color: #3C0E03;
+}
+header {
+    position: relative;
+    top:-35px;
+}
+main{
+    position:relative;
+    top: 100px;
+}
+.main-nav {
+    margin-right: 40px;
+}
+.menu,
+.submenu,
+.sublogo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* MENU RESPONSIVE */
+.resp {
+    display: none;  /* por defecto este contenido es visible, pero con esta prop ya no va a ocupar un lugar */
+}
+
+/* MENU DESKTOPS/WEB SITE */
+.menu {
+    background: #FFFCF3;
+    width: 100%;
+    height: 90px;
+    display: flex;  
+    justify-content: end;
+    align-items:flex-start; 
+    position: fixed;
+    z-index:500 ;
+}
+
+/* LOGO */
+.item-logo {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    right: 450px;
+    bottom: 10px;
+    
+}
+.tit-logo {
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 64px;
+    color: #3C0E03;
+    text-shadow: 2px 2px 4px #C74A2A;
+    position: relative;
+    right: 23px;
+}
+.link-logo img {
+    position: relative;
+    bottom: 5px;
+}
+
+/* ITEMS DEL MENU */
+.menu-link {
+    display: flex;
+    margin: 0px 10px;
+    padding-bottom: 5px;
+    color: #B2766F;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+.menu a {
+    position: relative;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.no-resp {
+    margin-top: 20px;   
+}
+/* Efecto para subrayar texto dentro de un <a> al pasar el mouse*/
+.menu .subrayado::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.4px;
+    background:linear-gradient(90deg, #C74A2A 0%, #996163 57%);
+    z-index: 1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+.menu a:hover::before {
+    transform: scaleX(1);
+}
+.menu[data-animation="center"] a::before {
+    transform-origin: center;
+} 
+/* CONTENEDOR DEL SUB-MENU*/
+.container-submenu {
+    position: relative;
+}
+.submenu {
+    background-color: #c58780fb;
+    border-radius: 30% 15% / 30% 15%;
+    position: absolute;
+    top: 68px;
+    left: -45px;
+    padding: 10px;
+    z-index: 100;
+    visibility: hidden; /* hace transparente el contenedor */
+    opacity: 0; /* con las prop de abajo al sacar el cursor del elemento q tiene hover, se va difuminando hasta hacerse total la transparencia */
+    transition: all 0.5s ease-out;
+}
+.container-submenu:hover .submenu {
+    visibility: visible;    /*hace visible el contenedor cdo paso el mousse sobre quien tiene la prop :hover, "Servicios" */
+    opacity: 1; /*cdo pasamos el mousse por este ya no esta mas transparente */
+}
+/* ITEMS DEL SUB-MENU*/
+.submenu p {
+    font-size:13px;
+    color: #F2CA52;
+    text-shadow: 2px 2px 5px #120D08;
+}
+.submenu-link {
+    padding-bottom: 5px;
+    font-size:13px;
+    text-decoration: none;
+}
+.submenu .submenu-link {
+    padding-left: 25px;
+    padding: 10px;
+    color: #F2CA52;
+    text-shadow: 2px 2px 5px #120D08;
+    transition: all 0.5s ease-in-out;
+}
+.submenu .submenu-link:hover {
+    color:#281612;
+    font-weight: bold;
+}
+
+/* Efecto para redondear texto al pasar el mouse*/
+.submenu {
+    width: auto;
+    height: auto;
+}
+.contac{
+    position: relative;
+    display: block;
+    padding: 5px; 
+    top: 25px;
+}
+.svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    z-index: -1;
+}
+
+.svg path {
+    fill: transparent;
+    stroke-width: 8px;
+    stroke: #cc745e88;
+    stroke-dasharray: 150;
+    stroke-dashoffset: -1214;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.29, 0.68, 0.74, 1.02);
+}
+.menu .contac:hover svg path {
+    stroke-dashoffset: 0;
+}
+/*----*/
+.submenu-btn i { 
+    padding-left: 8px;
+}
+/* CARRITO*/
+.carro{
+    margin-right: 15px;
+}
+.icon {
+    height: 25px;
+    transition: 0.7s all ease;
+    fill: #995353 ;
+}
+.icon:hover {
+    fill:#FFD856 ;
+}
+
+/* MAIN */
+.subtit {
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Acme', sans-serif;
+    text-shadow: 2px 2px 4px #C74A2A;
+    font-size:35px;
+    letter-spacing: 1.5px;
+    position: relative;
+    top: -10px;
+}
+.subtit3 {
+    padding: 10px;
+    font-size: 25px;
+    letter-spacing: 1.7px;
+    color: #D9BB84;
+    font-family: 'Lato', sans-serif;
+}
+.list {
+    margin-left: 20px;
+    line-height: 25px;
+}
+/*contendor -con grid- */
+.left {
+    grid-area: izq;
+}
+.right {
+    grid-area: der;
+}
+.contenedor {
+    display: grid;
+    grid-template:
+    "izq der" auto/
+    40%  40% ;
+    position: relative;
+    left: 150px ;
+}
+/* .left -con grid- */
+.masaje {
+    grid-area: ma;
+}
+.m {
+    grid-area: li1;
+}
+.facial {
+    grid-area: fa;
+}
+.f {
+    grid-area:li2 ;
+}
+.img1 {
+    grid-area: img1;
+}
+.left {
+    display: grid;
+    grid-template: 
+    "ma  img1"
+    "li1 img1"
+    "fa  img1"
+    "li2 img1"
+    ;
+}
+/* .right -con grid- */
+.peluqueria {
+    grid-area: pe;
+}
+.r {
+    grid-area: li2;
+}
+.img2 {
+    grid-area: img2;
+}
+.right {
+    display: grid;
+    grid-template: 
+    "pe  img2"
+    "li2 img2"
+    "li2 img2"
+    "li2 img2"
+    ;
+}
+/*RESERVAR*/
+.fin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -4.5px;
+}
+.text-fin, .boton-fin {
+    z-index: 10;
+    position: absolute;
+}
+.text-fin{
+    top: 60px;
+    text-align: center;
+    font-size: 55px;
+    color: whitesmoke;
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+.boton-fin {
+    top: 240px;
+}
+/*BOTONES*/
+.boton-personalizado {
+    text-decoration:none;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color:#F2E9D8;
+    padding:10px 45px;
+    background:#D9BB84;
+    border-radius:10px;
+    }
+.boton-personalizado:hover {
+    color:#F2E9D8;
+    background:#BF9341;
+}
+.cuatro {
+    background: #FFD757;
+    color: #F2E9D8;
+    border:none;
+    font-size: 30px;
+}
+.cuatro:hover {
+    color: #3C0E03;
+    background:#ffce2d;
+}
+/*WSAPP*/
+.wsapp {
+    position: fixed;
+    z-index: 700;
+}
+.wsapp img {
+    background: #D6B981;
+    position: relative;
+    left: 1280px;
+    top: 395px;
+    box-shadow: 4px 2px 3px 4px #50504F ;
+    border-radius: 100%;
+}
+/*FOOTER*/
+.page-footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+    background: #120D08;
+    width: 100%;
+    height: 15vh;
+    top: 50px;
+}
+.page-footer span {
+    color: red;
+}
+.page-footer a  {
+    text-decoration: none;
+    color: #F2E9D8;
+}
+.page-footer small {
+    color:#F2E9D8 ;
+    position: relative;
+    top: 20px;
+}
