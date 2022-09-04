@@ -221,21 +221,21 @@ main{
 }
 @keyframes banner {
     2%, 30% {
-        background-image: url(/img/fond.png);
+        background-image: url(../img/fond.png);
         opacity: 1;
     }
     31%, 34% {
         opacity: 0.2;
     }
     35%, 65% {
-        background-image: url(/img/carrusel1.png);
+        background-image: url(../img/carrusel1.png);
         opacity: 1;
     }
     66%, 69% {
         opacity: 0.2;
     }
     70%, 98% {
-        background-image: url(/img/carrusel2.png);
+        background-image: url(../img/carrusel2.png);
         opacity: 1;
     }
     99%, 2% {
@@ -341,7 +341,7 @@ main{
     letter-spacing: 1.5px;
 }
 .fond-pres {
-    background-image: url(/img/fondo.png);
+    background-image: url(../img/fondo.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
